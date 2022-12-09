@@ -22,18 +22,13 @@ const List = () => {
         icon: 'gamepad' 
       }
     ]);
-
-    <form onSubmit={handleSubmit}>
-        <input type="text" value={value} onChange={e => setValue(e.target.value)} />
-        <button>Add column</button>
-    </form>
-
+    
     const [value, setValue] = useState('');
     
     const handleSubmit = e => {
         e.preventDefault();
-        setColumns([...columns, { id: 4, title:  }]);
-    };
+        setColumns([...columns, { id: shortid(), title: value }]);
+    };     
 
     return (
       <div className={styles.list}>
@@ -46,6 +41,10 @@ const List = () => {
                   <Column key={column.id} title={column.title} icon={column.icon} />
               )}
           </section>
+          <form onSubmit={handleSubmit}>
+              <input type="text" value={value} onChange={e => setValue(e.target.value)} />
+              <button>Add column</button>
+          </form> 
       </div>
     );
   };
