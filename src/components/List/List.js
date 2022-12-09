@@ -1,7 +1,7 @@
 import styles from "./List.module.scss";
 import Column from "../Column/Column";
 import { useState } from 'react';
-
+import { useEffect } from 'react';
 
 const List = () => {
 
@@ -11,9 +11,12 @@ const List = () => {
       { id: 3, title: 'Games', icon: 'gamepad' }
     ]);
 
-  setTimeout(() => {
-    setColumns([...columns, { id: 4, title: 'Test column'}]);
-  }, 2000);
+    useEffect(() => {
+
+        setTimeout(() => {
+              setColumns([...columns, { id: 4, title: 'Test column'}]);
+        }, 2000);
+    }, []);
 
     return (
       <div className={styles.list}>
