@@ -12,7 +12,7 @@ const List = () => {
     ]);
 
 	const addColumn = newColumn => {
-		setColumns([...columns, { id: shortid(), title: newColumn.title }]);
+		setColumns([...columns, { id: shortid(), title: newColumn.title, icon: newColumn.icon }]);
 	};
 
 	return (
@@ -22,7 +22,7 @@ const List = () => {
 			</header>
 			<p className={styles.description}>Interesting things I want to check out</p>
 			<section className={styles.columns}>
-				{columns.map(column => <Column key={column.id} title={column.title} icon={column.icon} />)}
+				{columns.map(column => <Column key={column.id} title={column.title} icon={column.icon} id={column.id}/>)}
 			</section>
 			<ColumnForm action={addColumn} />
 		</div>
