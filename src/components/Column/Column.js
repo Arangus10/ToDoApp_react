@@ -1,6 +1,9 @@
 import styles from './Column.module.scss';
+import shortid from 'shortid';
+import { useState } from 'react';
 
-const Column = (props) => {
+const Column = props => {
+
     return (
         <article className={styles.column}>
             <h1 className={styles.title}>
