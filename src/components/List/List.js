@@ -23,7 +23,7 @@ const List = () => {
       <ColumnForm />
     </div>
   );  
-};
+}
 
 
 export default List;
