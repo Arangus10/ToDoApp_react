@@ -45,8 +45,8 @@ const initialState = {
       },
      {
         id: '2',
-        title: 'Test list',
-        description: 'Lorem Ipsum'
+        title: 'the 2nd list',
+        description: 'description'
      }
    ]
   

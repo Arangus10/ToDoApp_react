@@ -20,9 +20,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
- </main>
-
-
+    </main>
   );
 };
 
