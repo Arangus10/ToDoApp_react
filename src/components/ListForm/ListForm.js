@@ -4,7 +4,7 @@ import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import {useState} from 'react';
 import {useDispatch} from 'react-redux';
-import { getAllLists } from '../../redux/store';
+import { addList } from '../../redux/listsRedux';
 
 const ListForm = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const ListForm = () => {
 
     const submithandler = e => {
         e.preventDefault();
-        dispatch(getAllLists({title, description}));
+        dispatch(addList({title, description}));
         setTitle('');
         setDescription('');
     }

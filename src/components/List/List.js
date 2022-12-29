@@ -1,42 +1,38 @@
-import styles from './List.module.scss';
-import Column from './../Column/Column';
-import ColumnForm from './../ColumnForm/ColumnForm';
-import SearchForm from '../SearchForm/SearchForm';
 import { useSelector } from 'react-redux';
-import { getColumnsByList, getListById } from '../../redux/store';
+import styles from "./List.module.scss";
+import Column from "../Column/Column";
+import ColumnForm from "../ColumnForm/ColumnForm";
+import { getColumnsByList } from '../../redux/columnsRedux';
+import { getListsById } from '../../redux/listsRedux';
 import { useParams } from 'react-router';
+import SearchForm from '../SearchForm/SearchForm';
 import { Navigate } from 'react-router';
 
 const List = () => {
-
   const { listId } = useParams();
-  const listData = useSelector(state => getListById(state, listId));
+  const listData = useSelector(state => getListsById(state, listId));
   const columns = useSelector(state => getColumnsByList(state, listId));
 
-
-  if(!listData) return <Navigate to="/" />
-  
+  if (!listData) return <Navigate to="/" />
   return (
     <div className={styles.list}>
       <header className={styles.header}>
-        <h2 className={styles.title}>
+        <h1 className={styles.title}>
           {listData.title}
-        </h2>
+        </h1>
       </header>
       <p className={styles.description}>
-        {listData.description}
+          {listData.description}
       </p>
       <SearchForm />
       <section className={styles.columns}>
-        {columns.map(column =>
-          <Column
-            key={column.id}
-            {...column}  />
-        )}
+        {columns.map((column) => (
+          <Column key={column.id} {...column} />
+        ))}
       </section>
-      <ColumnForm listId={listId} />
+      <ColumnForm listId={listId}/>
     </div>
-  )  
+  )
 };
 
 export default List;
