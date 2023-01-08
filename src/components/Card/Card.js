@@ -22,7 +22,6 @@ const Card = ({title, id, isFavorite}) => {
             <button className={styles.btn} onClick={handleToggleFavorite}><i className={clsx("fa fa-solid fa-star-o", isFavorite && styles.isFavorite)}></i></button>
             <button className={styles.btn} onClick={handleRemove}><i className="fa fa-solid fa-trash"></i></button>
             </span>
-
         </li>
     )
 }

@@ -10,8 +10,7 @@ const REMOVE_CARD = createActionName('REMOVE_CARD');
 // selectors
 export const getAllCards = state => state.cards;
 export const getFilteredCards = ({cards, searchString}, columnId) =>
-        cards
-  .filter(card => card.columnId === columnId && strContains(card.title, searchString));
+        cards.filter(card => card.columnId === columnId && strContains(card.title, searchString));
 
 export const getFavoriteCards = ({cards}) => cards.filter(card => card.isFavorite === true);
 
